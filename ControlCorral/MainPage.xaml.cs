@@ -22,9 +22,11 @@ namespace ControlCorral
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        List<ReservationInfo> _reservations;
         public MainPage()
         {
             this.InitializeComponent();
+            _reservations = new List<ReservationInfo>();
         }
     }
 }
