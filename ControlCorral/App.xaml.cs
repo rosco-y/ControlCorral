@@ -32,6 +32,29 @@ namespace ControlCorral
             this.Suspending += OnSuspending;
         }
 
+        /*
+        /// <summary>
+        /// Alternate OnLaunched() method, examplifying that the Window.Current.Content can
+        /// be set to an aribtrary control, although this is very discouraged and it's highly
+        /// recommended that the Content of the Window object be set to a frame object, as this
+        /// allows the default Navigation system to work.  Frames can only contain Pages and 
+        /// are designed this way to so that they can maintain a History of Pages visited, and 
+        /// then can use thier GoBack() and GoForward() and related properties and events 
+        /// (to see if it is possible to go back or go forward.) See Pgs 63-64 for related information 
+        /// on the Frame.
+        /// </summary>
+        /// <param name="e"></param>
+        protected override void OnLaunched(LaunchActivatedEventArgs e)
+        {
+            Window.Current.Content = new Button()
+            {
+                Content = "This button is the root content for this application's Window.",
+                HorizontalAlignment = HorizontalAlignment.Center
+            };
+            Window.Current.Activate();
+        }
+        //*/
+        //*
         /// <summary>
         /// Invoked when the application is launched normally by the end user.  Other entry points
         /// will be used such as when the application is launched to open a specific file.
@@ -39,11 +62,9 @@ namespace ControlCorral
         /// <param name="e">Details about the launch request and process.</param>
         protected override void OnLaunched(LaunchActivatedEventArgs e)
         {
-            Frame rootFrame = Window.Current.Content as Frame;
-
             // Do not repeat app initialization when the Window already has content,
             // just ensure that the window is active
-            if (rootFrame == null)
+            if (!(Window.Current.Content is Frame rootFrame))
             {
                 // Create a Frame to act as the navigation context and navigate to the first page
                 rootFrame = new Frame();
@@ -67,11 +88,13 @@ namespace ControlCorral
                     // configuring the new page by passing required information as a navigation
                     // parameter
                     rootFrame.Navigate(typeof(MainPage), e.Arguments);
+                    
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();
             }
         }
+        //*/
 
         /// <summary>
         /// Invoked when Navigation to a certain page fails
