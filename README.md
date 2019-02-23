@@ -6,4 +6,4 @@ Kudos to Edward and Elizabeth for writing what is, without a doubt, the best "Le
 
 There are more than just a few changes in the application softare development paradigm<sup>1</sup>
 
-<sup>[1]Pardon the Bandied word *Paradigm*, Taking all of the changes in the Windows 10 security model, and how apps are moved in and out of memory, and using XAML to create your interfaces, taking all these and more changes into account, it is a Paradigm shift to migrate from writing Windows Forms Applications to Windows 10 Store Applications.</sup>
+<sup>[1]Pardon the Bandied word *Paradigm*, Taking all of the changes in the Windows 10 security model, and how apps are moved in and out of memory, and using XAML to create your interfaces, taking all these and more changes into account, it is a _Paradigm Shift_ to migrate from writing Windows Forms Applications to Windows 10 Store Applications.</sup>
