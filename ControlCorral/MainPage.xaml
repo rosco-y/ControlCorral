@@ -13,7 +13,8 @@
             Content="Reserve Room"
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
-            Click="ReserveMassage"/>
+            Command="{Binding}"
+            CommandParameter="make a reservation"/>
 
     </Grid>
 </Page>

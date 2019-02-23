@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using System;
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace ControlCorral
@@ -19,6 +19,7 @@ namespace ControlCorral
             this.InitializeComponent();
             _reservations = new List<ReservationInfo>();
             _command = new GenericCommand();
+            Loaded += MainPage_Loaded;
             _command.DoSomething += _command_DoSomething;
         }
 
@@ -31,7 +32,7 @@ namespace ControlCorral
         {
             if (command.ToLower() == "make a reservation")
             {
-                var new_reservation = new ReservationInfo();
+                ReservationInfo new_reservation = new ReservationInfo();
                 _reservations.Add(new_reservation);
                 MessageDialog md =
                 new MessageDialog($"{_reservations.Count} massages reserved");
@@ -39,9 +40,5 @@ namespace ControlCorral
             }
         }
 
-        private void ReserveMassage(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }
