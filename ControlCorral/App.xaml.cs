@@ -40,7 +40,7 @@ namespace ControlCorral
         /// allows the default Navigation system to work.  Frames can only contain Pages and 
         /// are designed this way to so that they can maintain a History of Pages visited, and 
         /// then can use thier GoBack() and GoForward() and related properties and events 
-        /// (to see if it is possible to go back or go forward.) See Pgs 63-64 for related information 
+        /// (to see if it is possible to go back or go forward.) See Pg 63-64 for related information 
         /// on the Frame.
         /// </summary>
         /// <param name="e"></param>
@@ -53,6 +53,8 @@ namespace ControlCorral
             };
             Window.Current.Activate();
         }
+
+
         //*/
         //*
         /// <summary>

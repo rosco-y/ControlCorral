@@ -9,6 +9,11 @@
 
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Button
+            Content="Reserve Room"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Click="ReserveMassage"/>
 
     </Grid>
 </Page>
