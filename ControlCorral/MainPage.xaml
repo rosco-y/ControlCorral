@@ -14,7 +14,20 @@
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             Command="{Binding}"
-            CommandParameter="make a reservation"/>
+            CommandParameter="make a reservation">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="200"
+                        Height="100"
+                        CornerRadius="20"
+                        Background="{TemplateBinding Background}">
+                        <ContentControl Content="{TemplateBinding Content}"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
 
+            </Button.Template>
+        </Button>
     </Grid>
 </Page>
