@@ -7,4 +7,4 @@ Kudos to Edward and Elizabeth for writing what is, without a doubt, the best "Le
 There are more than just a few changes in the **Windows** application softare development paradigm<sup>1</sup> and This book is at once Logical, Practical, and so well planned that it is, actually, easy to follow.  In spite of these characteristics, it is also a fun, but even more, an exciting book that I eagerly pick up and work from morning after morning.
 
 ---
-<sup>[1]"Paradigm", is bandied about such that out eyes glaze over when it arrives, but, when you consider the many changes in Windows 10 Application Development, it really does feel justified to use *paradigm* yet one more time.</sup>
+<sup>[1]"Paradigm", is bandied about such that out eyes glaze over when it arrives, but, when I consider the many changes in Windows 10 Application Development, it really does feel justified to use *paradigm* yet one more time.</sup>
