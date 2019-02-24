@@ -15,19 +15,11 @@
             VerticalAlignment="Center"
             Command="{Binding}"
             CommandParameter="make a reservation">
-            <Button.Template>
-                <ControlTemplate TargetType="Button">
-                    <Border Width="200"
-                        Height="100"
-                        CornerRadius="20"
-                        Background="{TemplateBinding Background}">
-                        <ContentControl Content="{TemplateBinding Content}"
-                                    HorizontalAlignment="Center"
-                                    VerticalAlignment="Center"/>
-                    </Border>
-                </ControlTemplate>
-
-            </Button.Template>
         </Button>
+        <CalendarDatePicker x:Name="control_calendar"
+                            HorizontalAlignment="Left"
+                            Margin="91,165,0,0"
+                            VerticalAlignment="Top"
+                            PlaceholderText="What Day works for you?"/>
     </Grid>
 </Page>

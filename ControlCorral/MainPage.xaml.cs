@@ -32,13 +32,29 @@ namespace ControlCorral
         {
             if (command.ToLower() == "make a reservation")
             {
-                ReservationInfo new_reservation = new ReservationInfo();
-                _reservations.Add(new_reservation);
-                MessageDialog md =
-                new MessageDialog($"{_reservations.Count} massages reserved");
-                await md.ShowAsync();
+                ReservationInfo new_reservation;
+                if (control_calendar.Date != null)
+                {
+
+                    new_reservation = new ReservationInfo()
+                    {
+                        AppointmentDay = control_calendar.Date.Value.Date,
+                    };
+
+                    _reservations.Add(new_reservation);
+                    MessageDialog md =
+                    new MessageDialog($"{_reservations.Count} massages reserved");
+                    await md.ShowAsync();
+                    control_calendar.Date = null;                     
+                }
+                else
+                {
+                    MessageDialog md =
+                        new MessageDialog("Select a day first");
+                    await md.ShowAsync();
+                }
             }
         }
 
-    }
+    } // class
 }
