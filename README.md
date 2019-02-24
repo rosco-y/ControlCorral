@@ -7,4 +7,4 @@ Kudos to Edward and Elizabeth for writing what is, without a doubt, the best "Le
 There are more than just a few changes in the **Windows** application softare development paradigm<sup>1</sup> and This book is at once Logical, Practical, and well mapped making it easy to follow.  In spite of these characteristics, it is also afun, nea, **exciting**, tome, and I eagerly pick it up and work from it morning after morning.
 
 ---
-<sup>[1]Pardon the Bandied word *Paradigm*, Taking all of the changes in the Windows 10 security model, and how apps are moved in and out of memory, and using XAML to create your interfaces, taking all these and more changes into account, it is a _Paradigm Shift_ to migrate from writing Windows Forms Applications to Windows 10 Store Applications.</sup>
+<sup>[1]"Paradigm", is bandied about such that out eyes glaze over when it arrives, but, when you consider the many changes in Windows 10 Application Development, it really does feel justified to use paradigm yet one more time.</sup>
