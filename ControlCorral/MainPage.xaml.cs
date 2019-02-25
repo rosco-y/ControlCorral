@@ -23,6 +23,9 @@ namespace ControlCorral
             _command = new GenericCommand();
             Loaded += MainPage_Loaded;
             _command.DoSomething += _command_DoSomething;
+            control_name.QuerySubmitted += Control_name_QuerySubmitted;
+            control_name.TextChanged += Control_name_TextChanged;
+            control_name.SuggestionChosen += Control_name_SuggestionChosen;
         }
 
         void MainPage_Loaded(object sender, RoutedEventArgs e)
