@@ -39,11 +39,12 @@ namespace ControlCorral
                     new_reservation = new ReservationInfo()
                     {
                         AppointmentDay = control_calendar.Date.Value.Date,
+                        AppointmentTime = control_time.Time,
                     };
 
                     _reservations.Add(new_reservation);
                     MessageDialog md =
-                    new MessageDialog($"{_reservations.Count} massages reserved");
+                    new MessageDialog(successMessage(new_reservation));
                     await md.ShowAsync();
                     control_calendar.Date = null;                     
                 }
@@ -54,6 +55,16 @@ namespace ControlCorral
                     await md.ShowAsync();
                 }
             }
+
+        }
+
+        string successMessage(ReservationInfo new_reservation)
+        {
+            DateTime date = new_reservation.AppointmentDay;
+            return $"{_reservations.Count} massages reserved. " + Environment.NewLine + 
+                $"Newest is on {date.Month}/{date.Day}/{date.Year} at { new_reservation.AppointmentTime}";
+
+            
         }
 
     } // class
