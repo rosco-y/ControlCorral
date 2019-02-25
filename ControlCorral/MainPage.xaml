@@ -21,5 +21,9 @@
                             Margin="91,165,0,0"
                             VerticalAlignment="Top"
                             PlaceholderText="What Day works for you?"/>
+        <TimePicker x:Name="control_time" Header="What time works for you?"
+                    Margin="10,47,0,0"
+                    VerticalAlignment="Top"
+                    Width="242"/>
     </Grid>
 </Page>
