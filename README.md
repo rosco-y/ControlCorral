@@ -10,6 +10,5 @@ The turns in software licensing programs are making this a very exciting time to
 
 So given that I have a modest investment in hardware, (a bargain Dell PC:3.20GHz Intel Pentium CPU; 1TB HD; 16 GB RAM and a couple of flat-panel displays (I would enjoy a nice Graphics Card, but my on-board Intel Display Adapters do the bulk of the work  without hickups--I do see some problems displaying my web-link menus in my web browser when the menus get nested more than a few levels deep.)
 
-All told, I'd be excited to be able to upgrade (that will never change), but I'm happy with my PC.  I can run a lot of hard-working software simultaneously without much time spent wishing things would move faster--we are well matched, my PC and I.  Although I do believe that we tend to work up to our PC's potential.  If it will be taxed by opening a certain software--we tend away from it, and vise versa.
 ---
 <sup>[1]"Paradigm", is bandied about such that out eyes glaze over when it arrives, but, when I consider the many changes in Windows 10 Application Development, it really does feel justified to use *paradigm* yet one more time.</sup>
