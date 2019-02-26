@@ -41,12 +41,5 @@
                     VerticalAlignment="Top"
                     Width="242"/>
         </RelativePanel>
-        <Button
-            Content="Reserve Room"
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Command="{Binding}"
-            CommandParameter="make a reservation">
-        </Button>
     </Grid>
 </Page>
