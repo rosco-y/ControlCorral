@@ -7,36 +7,35 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
     <Page.BottomAppBar>
-        <CommandBar ClosedDisplayMode="Minimal" IsSticky="True">
-            <CommandBar.Content>
-                <StackPanel Orientation="Horizontal">
-                    <Button Content="Reserve Room"
-                            Command="{Binding}"
-                            CommandParameter="make a reservation"
-                            Width="114"
-                            Height="32">
-                        
-                    </Button>
-                </StackPanel>
-            </CommandBar.Content>
+        <CommandBar 
+            ClosedDisplayMode="Compact"
+            IsSticky="True">
+
+            <AppBarButton 
+                    Command="{Binding}"
+                   CommandParameter="make a reservation"
+                    Label="Reserve"
+                    Icon="Calendar">
+
+            </AppBarButton>
+            
         </CommandBar>
     </Page.BottomAppBar>
 
     <Grid>
         <RelativePanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-            
             <AutoSuggestBox x:Name="control_name"
                            Margin="40,40,0,20"
                            HorizontalAlignment="Left"
                            Header="What's your name?"
                            VerticalAlignment="Top"
                            Width="242" QueryIcon="Find"/>
-            
+
             <CalendarDatePicker x:Name="control_calendar"
                             RelativePanel.Below="control_name"
                             Margin="40,20,0,20"
                             PlaceholderText="What Day works for you?"/>
-            
+
             <TimePicker x:Name="control_time" Header="What time works for you?"
                         RelativePanel.Below="control_calendar"
                     Margin="40,20,0,20"
