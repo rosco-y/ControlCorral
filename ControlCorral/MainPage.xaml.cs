@@ -16,6 +16,9 @@ namespace ControlCorral
         List<ReservationInfo> _reservations;
         GenericCommand _command;
         List<string> _usuals = new List<string>();
+
+        #region CONSTRUCTION
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -26,8 +29,7 @@ namespace ControlCorral
             control_name.QuerySubmitted += Control_name_QuerySubmitted;
             control_name.TextChanged += Control_name_TextChanged;
             control_name.SuggestionChosen += Control_name_SuggestionChosen;
-        }
-
+        } 
         void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
             this.DataContext = _command;
@@ -37,42 +39,55 @@ namespace ControlCorral
 
         }
 
-        async private void _command_DoSomething(string command)
+        #endregion
+
+        async void _command_DoSomething(string command)
         {
-            if (command.ToLower() == "make a reservation")
+            MessageDialog md = null;
+            if (control_calendar.Date != null)
             {
                 ReservationInfo new_reservation;
-                if (control_calendar.Date != null)
+                new_reservation = new ReservationInfo()
+                {
+                    AppointmentDay = control_calendar.Date.Value.Date,
+                    AppointmentTime = control_time.Time,
+                    CustomerName = control_name.Text,
+                    DOB = control_dob.Date.Date,
+                    HasPaid = false,
+                };
+                _reservations.Add(new_reservation);
+                if (command.ToLower() == "make a reservation")
                 {
 
-                    new_reservation = new ReservationInfo()
-                    {
-                        AppointmentDay = control_calendar.Date.Value.Date,
-                        AppointmentTime = control_time.Time,
-                        CustomerName = control_name.Text,
-                    };
-
-                    _reservations.Add(new_reservation);
-                    MessageDialog md =
-                    new MessageDialog(successMessage(new_reservation));
-                    await md.ShowAsync();
-                    control_calendar.Date = null;
+                    md = new MessageDialog(successMessage(new_reservation, "confirmed"));
                 }
                 else
                 {
-                    MessageDialog md =
-                        new MessageDialog("Select a day first");
-                    await md.ShowAsync();
+                    if (command.ToLower() == "hold my spot")
+                    {
+                        md = new MessageDialog(successMessage(new_reservation, "tentative"));
+                    }
                 }
+                if (md != null)
+                {
+                    await md.ShowAsync();
+                    clearControls();
+                }
+
             }
+        } //DoSomething
+
+        void clearControls()
+        {
+            control_calendar.Date = null;
 
         }
 
-        string successMessage(ReservationInfo new_reservation)
+        string successMessage(ReservationInfo new_reservation, string reservation_tag = "")
         {
             DateTime date = new_reservation.AppointmentDay;
             return $"{_reservations.Count} massages reserved. " + Environment.NewLine +
-                $"Newest is on {date.Month}/{date.Day}/{date.Year} at { new_reservation.AppointmentTime}" +
+                $"Newest is {reservation_tag} on {date.Month}/{date.Day}/{date.Year} at { new_reservation.AppointmentTime}" +
                 $" For {new_reservation.CustomerName}";
 
 
@@ -107,7 +122,8 @@ namespace ControlCorral
             control_name.ItemsSource = results;
             control_name.IsSuggestionListOpen = true;
         }
-        #endregion                                   
+        #endregion
 
-    } // class
-}
+    } //MainPage Class
+    
+}// ControlCorral Namespace

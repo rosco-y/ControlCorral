@@ -10,15 +10,23 @@
         <CommandBar 
             ClosedDisplayMode="Compact"
             IsSticky="True">
-
-            <AppBarButton 
-                    Command="{Binding}"
-                   CommandParameter="make a reservation"
-                    Label="Reserve"
-                    Icon="Calendar">
-
-            </AppBarButton>
             
+            <AppBarButton
+                Label="Reserve"
+                Icon="Calculator">
+                <AppBarButton.Flyout>
+                    <MenuFlyout>
+                        <MenuFlyoutItem
+                            Command="{Binding}"
+                            CommandParameter="make a reservation"
+                            Text="Pay Now"/>
+                        <MenuFlyoutItem
+                            Text="Pay Later"
+                            Command="{Binding}"
+                            CommandParameter="hold my spot"/>
+                    </MenuFlyout>
+                </AppBarButton.Flyout>
+            </AppBarButton>
         </CommandBar>
     </Page.BottomAppBar>
 
@@ -41,6 +49,13 @@
                     Margin="40,20,0,20"
                     VerticalAlignment="Top"
                     Width="242"/>
+            <DatePicker x:Name="control_dob"
+                        Header="When were you born?"
+                        RelativePanel.Below="control_time"
+                        Margin="40,20,0,20">
+                
+            </DatePicker>
+                        
         </RelativePanel>
     </Grid>
 </Page>
