@@ -29,7 +29,11 @@ namespace ControlCorral
             control_name.QuerySubmitted += Control_name_QuerySubmitted;
             control_name.TextChanged += Control_name_TextChanged;
             control_name.SuggestionChosen += Control_name_SuggestionChosen;
+<<<<<<< HEAD
         }
+=======
+        } 
+>>>>>>> dfba30a3aebbecd70e0080a0f3e9da35acc226b0
         void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
             this.DataContext = _command;
@@ -44,6 +48,7 @@ namespace ControlCorral
         async void _command_DoSomething(string command)
         {
             MessageDialog md = null;
+<<<<<<< HEAD
             if (control_calendar.Date == null)
             {
                 // calendar is null
@@ -89,14 +94,48 @@ namespace ControlCorral
                         await md.ShowAsync();
                         clearControls();
                     }
+=======
+            if (control_calendar.Date != null)
+            {
+                ReservationInfo new_reservation;
+                new_reservation = new ReservationInfo()
+                {
+                    AppointmentDay = control_calendar.Date.Value.Date,
+                    AppointmentTime = control_time.Time,
+                    CustomerName = control_name.Text,
+                    DOB = control_dob.Date.Date,
+                    HasPaid = false,
+                };
+                _reservations.Add(new_reservation);
+                if (command.ToLower() == "make a reservation")
+                {
+
+                    md = new MessageDialog(successMessage(new_reservation, "confirmed"));
                 }
+                else
+                {
+                    if (command.ToLower() == "hold my spot")
+                    {
+                        md = new MessageDialog(successMessage(new_reservation, "tentative"));
+                    }
+                }
+                if (md != null)
+                {
+                    await md.ShowAsync();
+                    clearControls();
+>>>>>>> dfba30a3aebbecd70e0080a0f3e9da35acc226b0
+                }
+
             }
         } //DoSomething
 
         void clearControls()
         {
             control_calendar.Date = null;
+<<<<<<< HEAD
             control_time.Time = TimeSpan.MinValue;
+=======
+>>>>>>> dfba30a3aebbecd70e0080a0f3e9da35acc226b0
 
         }
 
@@ -138,7 +177,13 @@ namespace ControlCorral
             control_name.IsSuggestionListOpen = true;
         }
         #endregion
+<<<<<<< HEAD
 
     } //MainPage Class
 
+=======
+
+    } //MainPage Class
+    
+>>>>>>> dfba30a3aebbecd70e0080a0f3e9da35acc226b0
 }// ControlCorral Namespace
