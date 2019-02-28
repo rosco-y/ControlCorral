@@ -10,7 +10,7 @@
         <CommandBar 
             ClosedDisplayMode="Compact"
             IsSticky="True">
-            
+
             <AppBarButton
                 Label="Reserve"
                 Icon="Calculator">
@@ -41,21 +41,48 @@
 
             <CalendarDatePicker x:Name="control_calendar"
                             RelativePanel.Below="control_name"
-                            Margin="40,20,0,20"
+                            Margin="40,10,0,10"
                             PlaceholderText="What Day works for you?"/>
 
             <TimePicker x:Name="control_time" Header="What time works for you?"
                         RelativePanel.Below="control_calendar"
-                    Margin="40,20,0,20"
+                    Margin="40,10,0,10"
                     VerticalAlignment="Top"
                     Width="242"/>
             <DatePicker x:Name="control_dob"
                         Header="When were you born?"
                         RelativePanel.Below="control_time"
-                        Margin="40,20,0,20">
-                
+                        Margin="40,10,0,10">
             </DatePicker>
-                        
+
+            <PasswordBox
+                x:Name="txt_passphrase"
+                Header="Enter a passphrase"
+                RelativePanel.Below="control_dob"
+                Margin="40,10,0,10"
+                PlaceholderText="keep it a secret"
+                Width="296"/>
+            <ComboBox
+                x:Name="control_procedure"
+                Header="Select a procedure"
+                RelativePanel.Below="txt_passphrase"
+                Margin="40,10,0,10"
+                Width="296" SelectedIndex="0">
+                <ComboBoxItem Content="Not Set"/>
+                <ComboBoxItem Content="Swedish"/>
+                <ComboBoxItem Content="Hot Stone"/>
+                <ComboBoxItem Content="Shiatsu"/>
+                <ComboBoxItem Content="Deep Tissue"/>
+                <ComboBoxItem Content="Trigger Point"/>
+                <ComboBoxItem Content="Thai"/>
+            </ComboBox>
+            <Slider
+                x:Name="control_intensity"
+                Header="Massage Intensity"
+                RelativePanel.Below="control_procedure"
+                Margin="40,10,0,10"
+                Width="296"/>
+
         </RelativePanel>
     </Grid>
 </Page>

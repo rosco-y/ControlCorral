@@ -41,6 +41,22 @@ namespace ControlCorral
 
         #endregion
 
+        ReservationInfo createReservation()
+        {
+            return new ReservationInfo()
+            {
+                AppointmentDay = control_calendar.Date.Value.Date,
+                AppointmentTime = control_time.Time,
+                CustomerName = control_name.Text,
+                DOB = control_dob.Date.Date,
+                PassPhrase = txt_passphrase.Password,
+                HasPaid = false,
+                MassageIntensity = control_intensity.Value,
+                Procedure = control_procedure.SelectionBoxItem as string
+            };
+
+        }
+
         async void _command_DoSomething(string command)
         {
             MessageDialog md = null;
@@ -53,16 +69,9 @@ namespace ControlCorral
             }
             else
             {
-                ReservationInfo new_reservation;
-                new_reservation = new ReservationInfo()
-                {
-                    AppointmentDay = control_calendar.Date.Value.Date,
-                    AppointmentTime = control_time.Time,
-                    CustomerName = control_name.Text,
-                    DOB = control_dob.Date.Date,
-                    HasPaid = false,
-                };
+                ReservationInfo new_reservation = createReservation();
                 _reservations.Add(new_reservation);
+
                 if (command.ToLower() == "make a reservation")
                 {
 
@@ -80,13 +89,13 @@ namespace ControlCorral
                     await md.ShowAsync();
                     clearControls();
                 }
-
             }
         } //DoSomething
 
         void clearControls()
         {
             control_calendar.Date = null;
+            control_procedure.SelectedItem = 0;
         }
 
         string successMessage(ReservationInfo new_reservation, string reservation_tag = "")
