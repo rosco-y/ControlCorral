@@ -33,9 +33,14 @@ namespace ControlCorral
         void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
             this.DataContext = _command;
-            _usuals = new List<string> { "alex", "azuka", "elizabeth", "ahmed", "josh", "allan",
-            "john", "david", "chris", "jack", "bobby", "ike", "emeka", "tobe", "chidi", "mason",
-            "andrew" };
+            _usuals = new List<string> {
+                "Emma",
+                "Jon",
+                "Julia",
+                "Margaret",
+                "Mary",
+                "Pat",
+            };
 
         }
 

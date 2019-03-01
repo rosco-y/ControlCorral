@@ -133,6 +133,15 @@
     <None Include="ControlCorral_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\Amy.jpg" />
+    <Content Include="Assets\Dad.jpg" />
+    <Content Include="Assets\Emma.jpg" />
+    <Content Include="Assets\Jon.jpg" />
+    <Content Include="Assets\Julia.jpg" />
+    <Content Include="Assets\Margaret.jpg" />
+    <Content Include="Assets\Mary.jpg" />
+    <Content Include="Assets\Mom.jpg" />
+    <Content Include="Assets\Pat.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

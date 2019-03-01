@@ -82,7 +82,11 @@
                 RelativePanel.Below="control_procedure"
                 Margin="40,10,0,10"
                 Width="296"/>
-
+            <Image
+                x:Name="control_image"
+                RelativePanel.RightOf="control_calendar"
+                Margin="150,50,0,50"
+                Source="/Assets/Emma.jpg"/>
         </RelativePanel>
     </Grid>
 </Page>
