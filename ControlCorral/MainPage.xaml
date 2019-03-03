@@ -87,6 +87,15 @@
                 RelativePanel.RightOf="control_calendar"
                 Margin="150,50,0,50"
                 Source="/Assets/Emma.jpg"/>
+          <Button
+              Click="ReplaceImage"
+              RelativePanel.RightOf="control_image"
+              Margin="150,50,0,50"
+              Height="227"
+              Width="225"
+              BorderThickness="1"
+              BorderBrush="Gray"
+              Background="Gainsboro"/>
         </RelativePanel>
     </Grid>
 </Page>
