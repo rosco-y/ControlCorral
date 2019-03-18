@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using Windows.Media.Capture;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media.Imaging;
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
 namespace ControlCorral
@@ -15,6 +18,8 @@ namespace ControlCorral
     {
         List<ReservationInfo> _reservations;
         GenericCommand _command;
+        CameraCaptureUI ccui = new CameraCaptureUI();
+        byte[] _user_image;
         List<string> _usuals = new List<string>();
 
         #region CONSTRUCTION
@@ -33,9 +38,15 @@ namespace ControlCorral
         void MainPage_Loaded(object sender, RoutedEventArgs e)
         {
             this.DataContext = _command;
-            _usuals = new List<string> { "alex", "azuka", "elizabeth", "ahmed", "josh", "allan",
-            "john", "david", "chris", "jack", "bobby", "ike", "emeka", "tobe", "chidi", "mason",
-            "andrew" };
+
+            _usuals = new List<string> {
+                "Emma",
+                "Jon",
+                "Julia",
+                "Margaret",
+                "Mary",
+                "Pat",
+            };
 
         }
 
@@ -137,6 +148,24 @@ namespace ControlCorral
         }
         #endregion
 
+        async void ReplaceImage(object sender, RoutedEventArgs e)
+        {
+            BitmapImage image = new BitmapImage();
+            control_image.Source = image;
+            ccui.PhotoSettings.AllowCropping = true;
+            ccui.PhotoSettings.MaxResolution = CameraCaptureUIMaxPhotoResolution.HighestAvailable;
+            var result = await ccui.CaptureFileAsync(CameraCaptureUIMode.Photo);
+            if (result != null)
+            {
+                var stream = await result.OpenReadAsync();
+                await image.SetSourceAsync(stream);
+
+                stream.Seek(0);
+                BinaryReader reader = new BinaryReader(stream.AsStreamForRead());
+                _user_image = new byte[stream.Size];
+                reader.Read(_user_image, 0, _user_image.Length);
+            }
+        }
     } //MainPage Class
 
 }// ControlCorral Namespace
