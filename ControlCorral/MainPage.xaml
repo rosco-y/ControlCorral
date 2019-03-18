@@ -82,20 +82,16 @@
                 RelativePanel.Below="control_procedure"
                 Margin="40,10,0,10"
                 Width="296"/>
-            <Image
-                x:Name="control_image"
-                RelativePanel.RightOf="control_calendar"
-                Margin="150,50,0,50"
-                Source="/Assets/Emma.jpg"/>
-          <Button
-              Click="ReplaceImage"
-              RelativePanel.RightOf="control_image"
-              Margin="150,50,0,50"
-              Height="227"
-              Width="225"
-              BorderThickness="1"
-              BorderBrush="Gray"
-              Background="Gainsboro"/>
+            <Button RelativePanel.RightOf="txt_passphrase" 
+                    Margin="30"
+                    Click="ReplaceImage">
+
+                <Image
+                    Margin="10"
+                    x:Name="control_image"
+                    Source="/Assets/Emma.jpg"/>
+
+            </Button>
         </RelativePanel>
     </Grid>
 </Page>

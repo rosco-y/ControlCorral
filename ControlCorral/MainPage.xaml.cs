@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Threading.Tasks;
 using Windows.Media.Capture;
+using Windows.Storage;
+using Windows.Storage.Pickers;
 using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -62,8 +65,9 @@ namespace ControlCorral
                 DOB = control_dob.Date.Date,
                 PassPhrase = txt_passphrase.Password,
                 HasPaid = false,
+                Procedure = control_procedure.SelectionBoxItem as string,
                 MassageIntensity = control_intensity.Value,
-                Procedure = control_procedure.SelectionBoxItem as string
+                CustomerImage = _user_image,
             };
 
         }
@@ -148,16 +152,18 @@ namespace ControlCorral
         }
         #endregion
 
+        StorageFile _file;
         async void ReplaceImage(object sender, RoutedEventArgs e)
         {
             BitmapImage image = new BitmapImage();
             control_image.Source = image;
-            ccui.PhotoSettings.AllowCropping = true;
-            ccui.PhotoSettings.MaxResolution = CameraCaptureUIMaxPhotoResolution.HighestAvailable;
-            var result = await ccui.CaptureFileAsync(CameraCaptureUIMode.Photo);
-            if (result != null)
+            //ccui.PhotoSettings.AllowCropping = true;
+            //ccui.PhotoSettings.MaxResolution = CameraCaptureUIMaxPhotoResolution.HighestAvailable;
+            //var result = await ccui.CaptureFileAsync(CameraCaptureUIMode.Photo);
+            selectPhoto();
+            if (_file != null)
             {
-                var stream = await result.OpenReadAsync();
+                var stream = await _file.OpenReadAsync();
                 await image.SetSourceAsync(stream);
 
                 stream.Seek(0);
@@ -166,6 +172,13 @@ namespace ControlCorral
                 reader.Read(_user_image, 0, _user_image.Length);
             }
         }
-    } //MainPage Class
 
-}// ControlCorral Namespace
+        async void selectPhoto()
+        {
+            FileOpenPicker openPicker = new FileOpenPicker();
+            openPicker.ViewMode = PickerViewMode.Thumbnail;
+            openPicker.FileTypeFilter.Add(".jpg");
+            _file = await openPicker.PickSingleFileAsync();
+        }
+    } //MainPage Class
+}// ControlCorral Namespace                      
