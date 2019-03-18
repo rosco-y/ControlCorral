@@ -82,7 +82,8 @@
                 RelativePanel.Below="control_procedure"
                 Margin="40,10,0,10"
                 Width="296"/>
-            <Button RelativePanel.RightOf="txt_passphrase" 
+            <Button Name="cmdReplaceImage" 
+                    RelativePanel.RightOf="txt_passphrase" 
                     Margin="30"
                     Click="ReplaceImage">
 
