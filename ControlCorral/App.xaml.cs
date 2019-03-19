@@ -1,18 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
+using ControlCorral.Model;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
-using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
 namespace ControlCorral
@@ -26,6 +19,7 @@ namespace ControlCorral
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
         /// </summary>
+        /public static ControlCorralModel Model { get; set; }
         public App()
         {
             this.InitializeComponent();
@@ -66,6 +60,8 @@ namespace ControlCorral
         {
             // Do not repeat app initialization when the Window already has content,
             // just ensure that the window is active
+            createModelAndData();
+
             if (!(Window.Current.Content is Frame rootFrame))
             {
                 // Create a Frame to act as the navigation context and navigate to the first page
@@ -90,13 +86,42 @@ namespace ControlCorral
                     // configuring the new page by passing required information as a navigation
                     // parameter
                     rootFrame.Navigate(typeof(MainPage), e.Arguments);
-                    
+
                 }
                 // Ensure the current window is active
                 Window.Current.Activate();
             }
         }
         //*/
+
+        void createModelAndData()
+        {
+            Model = new ControlCorralModel();
+            Model.MassageTypes.AddRange(
+            new List<string>
+            {
+            "Swedish","Hot Stone",
+            "Shiatsu","Deep Tissue",
+            "Trigger Point","Thai",
+            }.Select(i => new MassageTypes
+            {
+                Name = i,
+            }).ToList());
+
+            Model.Customers.AddRange(
+                new List<string>
+                {
+                   "Emma",
+                    "Jon",
+                    "Julia",
+                    "Margaret",
+                    "Mary",
+                    "Pat",
+                }.Select(i=> new CustomerInfo
+                {
+                    CustomerName = i,
+                }).ToList());
+        }
 
         /// <summary>
         /// Invoked when Navigation to a certain page fails
@@ -117,7 +142,7 @@ namespace ControlCorral
         /// <param name="e">Details about the suspend request.</param>
         private void OnSuspending(object sender, SuspendingEventArgs e)
         {
-            var deferral = e.SuspendingOperation.GetDeferral();
+            SuspendingDeferral deferral = e.SuspendingOperation.GetDeferral();
             //TODO: Save application state and stop any background activity
             deferral.Complete();
         }

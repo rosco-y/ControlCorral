@@ -67,14 +67,7 @@
                 Header="Select a procedure"
                 RelativePanel.Below="txt_passphrase"
                 Margin="40,10,0,10"
-                Width="296" SelectedIndex="0">
-                <ComboBoxItem Content="Not Set"/>
-                <ComboBoxItem Content="Swedish"/>
-                <ComboBoxItem Content="Hot Stone"/>
-                <ComboBoxItem Content="Shiatsu"/>
-                <ComboBoxItem Content="Deep Tissue"/>
-                <ComboBoxItem Content="Trigger Point"/>
-                <ComboBoxItem Content="Thai"/>
+                Width="296" 
             </ComboBox>
             <Slider
                 x:Name="control_intensity"
